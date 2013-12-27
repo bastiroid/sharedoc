@@ -1,5 +1,6 @@
 ## <ShareDoc> System Requirements for ShareDoc
-27.12.2013
+27.12.2013  
+
 Team members
 * Asim Ashraf
 * Henrik Reponen
@@ -96,6 +97,31 @@ The user is logged out
 
 ---
 
+**"User wants to create a document"**
+
+Initial state: 
+User is logged in and on the main view
+
+Normal flow:
+  
+  1. User clicks create new document button
+  2. A new document is created in the current group (user's own documents) and the document view opens
+  3. The name of the file is highlighted so the user can rename the document
+
+What can go wrong: 
+  
+  * user doesn’t have priviledge to create a new document in the current group
+  * user has exceeded his or hers document quota
+
+Other activities going on at the same time: 
+  
+* A new entry is added to the database
+
+End state: 
+The user is in document view and can edit the created document
+
+---
+
 **"User wants to edit a document"**
 
 Initial state: 
@@ -172,7 +198,7 @@ Normal flow:
   4. The user is given the option to share an existing group or to create a new one to share with this person
   5. User selects a new group to be created for collaboration with this user
   6. User is notified that the invitation was sent out successfully
-  	
+      
 What can go wrong:
  
 * user might mistype the name and the person looked for is not shown on the list
@@ -186,6 +212,34 @@ Other activities going on at the same time:
 
 End state: 
 The user is invited to collaborate on the group and this group is shown to the invitor
+
+---
+
+**"User wants to create a group"**
+
+Initial state: 
+User is logged in and on the main view
+
+Normal flow:
+  
+  1. User clicks create new group button
+  2. A new group is created and the group view opens with settings for the created group
+  3. Group has to be given a name and the user can specify who has access to view or edit the documents
+
+What can go wrong: 
+  
+  * user doesn't specify a name
+  * user mistypes a username
+
+Other activities going on at the same time: 
+  
+* A new entry is added to the database
+
+End state: 
+User is in group view
+
+---
+
 
 
 
@@ -221,27 +275,27 @@ What other non-functional requirements should be documented?
 
 ## 5. User interface
 
-Login
+**Login**
 ![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/login.png "Login user interface")
 
 This view of the application allows users to log into the system as the main focus. But also creation of new users can be reached from here.
 Design elements include flat design with a clean color palette and minimalistic layout. The color palette has the document view in mind where a dark background keeps the focus on brighter elements.
 
 
-Main view
+**Main view**
 ![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/main.png "Main view user interface")
 
 This view depicts the main view on the documents with the page navigation on top together with user elements like username, avatar and link to user settings.
 Documents are shown in an iconic view with a descriptive document title below the icon.
 
 
-Groups View
+**Groups View**
 ![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/groups.png "Groups view user interface")
 
 This view shows the groups page with an iconic listing of groups a user belongs to. Essential the same as the documents view. 
 
 
-Document View
+**Document View**
 ![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/doc.png "Document view user interface")
 
 This is the main view for document editing.  As previously mention is the focus on the document and the dark color palette helps to keep the document in the foreground.
