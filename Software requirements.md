@@ -30,6 +30,7 @@ Visitor is not registered
 
 Normal flow:
 
+<<<<<<< HEAD
 1. User goes to the site
 1. The visitor is prompted with the login page and the option to register
 1. Choosing register takes the visitor to the registration form
@@ -37,6 +38,15 @@ Normal flow:
 1. To finish registration visitor clicks submit
 1. The transaction is confirmed and the verification email is sent to the given email address which the user is told to verify first
 1. After the verification link is clicked the user account is fully functional
+=======
+i. User goes to the site
+i. The visitor is prompted with the login page and the option to register
+i. Choosing register takes the visitor to the registration form
+i. A unique username, strong password and a valid email address have to be provided
+i. To finish registration visitor clicks submit
+i. The transaction is confirmed and the verification email is sent to the given email address which the user is told to verify first
+i. After the verification link is clicked the user account is fully functional
+>>>>>>> 72ffe6fa903a6576164a90d61ae7f9f86d8d58d0
 
 What can go wrong:
 * username is not unique
@@ -56,10 +66,17 @@ User is not logged in
 
 Normal flow:
   
+<<<<<<< HEAD
 1. User opens the site
 1. User sees the page with the username and password form and the "Login" button
 1. Then he/she enters the username and password and clicks "Login"
 1. The user is redirected to the start screen of the application and is now logged in
+=======
+i. User opens the site
+i. User sees the page with the username and password form and the "Login" button
+i. Then he/she enters the username and password and clicks "Login"
+i. The user is redirected to the start screen of the application and is now logged in
+>>>>>>> 72ffe6fa903a6576164a90d61ae7f9f86d8d58d0
     
 What can go wrong: 
   
@@ -81,8 +98,13 @@ User is logged in and on the main view
 
 Normal flow:
   
+<<<<<<< HEAD
 1. User sees the logout button and clicks it
 1. The user is redirected to the login page of the application and is now logged out
+=======
+i. User sees the logout button and clicks it
+i. The user is redirected to the login page of the application and is now logged out
+>>>>>>> 72ffe6fa903a6576164a90d61ae7f9f86d8d58d0
 
 What can go wrong: 
   
@@ -104,9 +126,15 @@ User is logged in and on the main view
 
 Normal flow:
   
+<<<<<<< HEAD
 1. User clicks create new document button
 1. A new document is created in the current group (user's own documents) and the document view opens
 1. The name of the file is highlighted so the user can rename the document
+=======
+i. User clicks create new document button
+i. A new document is created in the current group (user's own documents) and the document view opens
+i. The name of the file is highlighted so the user can rename the document
+>>>>>>> 72ffe6fa903a6576164a90d61ae7f9f86d8d58d0
 
 What can go wrong: 
   
@@ -129,9 +157,15 @@ User is logged in and on the main view
 
 Normal flow:
   
+<<<<<<< HEAD
 1. User selects a document to edit
 1. The document view is shown and the document can be edited (if the user owns the document or has privilege to edit it)
 1. The user closes the document when edits are done
+=======
+i. User selects a document to edit
+i. The document view is shown and the document can be edited (if the user owns the document or has privilege to edit it)
+i. The user closes the document when edits are done
+>>>>>>> 72ffe6fa903a6576164a90d61ae7f9f86d8d58d0
 
 What can go wrong: 
   
@@ -154,9 +188,15 @@ User is logged in and on the main view
 
 Normal flow:
   
+<<<<<<< HEAD
 1. User selects the option to delete documents
 1. The document view is shown and the document can be edited (if the user owns the document or has privilege to edit it)
 1. The user closes the document when edits are done
+=======
+i. User selects the option to delete documents
+i. The document view is shown and the document can be edited (if the user owns the document or has privilege to edit it)
+i. The user closes the document when edits are done
+>>>>>>> 72ffe6fa903a6576164a90d61ae7f9f86d8d58d0
 
 What can go wrong: 
   
@@ -181,6 +221,7 @@ Normal flow:
 
 *Option 1 (the person to collaborate with is already a user of the system):*
 
+<<<<<<< HEAD
 1. User chooses collaborate
 1. User is shown a list of users in the system with a text field for search and a option to invite people outside the system
 1. User types the username of the person to collaborate with and selects the correct user from the list and clicks submit
@@ -196,6 +237,23 @@ Normal flow:
 1. The user is given the option to share an existing group or to create a new one to share with this person
 1. User selects a new group to be created for collaboration with this user
 1. User is notified that the invitation was sent out successfully
+=======
+i. User chooses collaborate
+i. User is shown a list of users in the system with a text field for search and a option to invite people outside the system
+i. User types the username of the person to collaborate with and selects the correct user from the list and clicks submit
+i. The user is given the option to share an existing group or to create a new one to share with this person
+i. User selects a new group to be created for collaboration with this user
+i. The creation and sharing of the group is confirmed
+
+*Option 2 (the person to collaborate with is NOT a user of the system):*
+
+i. User chooses collaborate
+i. User is shown a list of users in the system with a text field for search and a option to invite people outside of the system
+i. User selects to invite and types an email address and submits it
+i. The user is given the option to share an existing group or to create a new one to share with this person
+i. User selects a new group to be created for collaboration with this user
+i. User is notified that the invitation was sent out successfully
+>>>>>>> 72ffe6fa903a6576164a90d61ae7f9f86d8d58d0
       
 What can go wrong:
  
@@ -220,9 +278,15 @@ User is logged in and on the main view
 
 Normal flow:
   
+<<<<<<< HEAD
 1. User clicks create new group button
 1. A new group is created and the group view opens with settings for the created group
 1. Group has to be given a name and the user can specify who has access to view or edit the documents
+=======
+i. User clicks create new group button
+i. A new group is created and the group view opens with settings for the created group
+i. Group has to be given a name and the user can specify who has access to view or edit the documents
+>>>>>>> 72ffe6fa903a6576164a90d61ae7f9f86d8d58d0
 
 What can go wrong: 
   
