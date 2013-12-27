@@ -222,27 +222,27 @@ What other non-functional requirements should be documented?
 ## 5. User interface
 
 Login
-![Diagram](https://lh6.googleusercontent.com/gCukFhTMOcfsc2erzyW8C0slnAMUUC2xv9su8o-0o5ZX44-qWWmHdfTWZ7h20vDiilxC3uO01WdRm0oGRI0RVM4F6Pij_bs9GH9N8ulPH6vsM2ZEK_pryO8WHQ "Use case diagram")
+![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/login.png "Login user interface")
 
 This view of the application allows users to log into the system as the main focus. But also creation of new users can be reached from here.
 Design elements include flat design with a clean color palette and minimalistic layout. The color palette has the document view in mind where a dark background keeps the focus on brighter elements.
 
 
 Main view
-
+![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/main.png "Main view user interface")
 
 This view depicts the main view on the documents with the page navigation on top together with user elements like username, avatar and link to user settings.
 Documents are shown in an iconic view with a descriptive document title below the icon.
 
 
 Groups View
-
+![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/groups.png "Groups view user interface")
 
 This view shows the groups page with an iconic listing of groups a user belongs to. Essential the same as the documents view. 
 
 
 Document View
-
+![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/doc.png "Document view user interface")
 
 This is the main view for document editing.  As previously mention is the focus on the document and the dark color palette helps to keep the document in the foreground.
 
