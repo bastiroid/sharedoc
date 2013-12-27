@@ -19,7 +19,7 @@ We decided to agree on three levels of users : Basic users, that would be the ge
 
 ### 2.2 Use case diagrams
 
-![Diagram](https://raw.github.com/henrikre/sharedoc/master/usercase.png "Use case diagram")
+![Diagram](https://raw.github.com/henrikre/sharedoc/master/img/usercase.png "Use case diagram")
 
 ### 2.3 Use case scenarios
 
@@ -238,13 +238,13 @@ Other activities going on at the same time:
 End state: 
 User is in group view
 
----
 
+## 2.4 Depiction of one use case as a flow chart
 
+Adding a person to a collaboration group as a flowchart
 
+![Flowchart](https://raw.github.com/henrikre/sharedoc/master/img/flowchart.png "Use case scenario flowchart") 
 
-Depiction of one use case as a flow chart
- 
 
 ## 3. System architecture
  
@@ -289,27 +289,27 @@ Usability
 ## 5. User interface
 
 **Login**
-![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/login.png "Login user interface")
+![ui image](https://raw.github.com/henrikre/sharedoc/master/img/ui/login.png "Login user interface")
 
 This view of the application allows users to log into the system as the main focus. But also creation of new users can be reached from here.
 Design elements include flat design with a clean color palette and minimalistic layout. The color palette has the document view in mind where a dark background keeps the focus on brighter elements.
 
 
 **Main view**
-![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/main.png "Main view user interface")
+![ui image](https://raw.github.com/henrikre/sharedoc/master/img/ui/main.png "Main view user interface")
 
 This view depicts the main view on the documents with the page navigation on top together with user elements like username, avatar and link to user settings.
 Documents are shown in an iconic view with a descriptive document title below the icon.
 
 
 **Groups View**
-![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/groups.png "Groups view user interface")
+![ui image](https://raw.github.com/henrikre/sharedoc/master/img/ui/groups.png "Groups view user interface")
 
 This view shows the groups page with an iconic listing of groups a user belongs to. Essential the same as the documents view. 
 
 
 **Document View**
-![ui image](https://raw.github.com/henrikre/sharedoc/master/ui/doc.png "Document view user interface")
+![ui image](https://raw.github.com/henrikre/sharedoc/master/img/ui/doc.png "Document view user interface")
 
 This is the main view for document editing.  As previously mention is the focus on the document and the dark color palette helps to keep the document in the foreground.
 
