@@ -1,17 +1,15 @@
-## <ShareDoc>: System Requirements for ShareDoc"
+## <ShareDoc> System Requirements for ShareDoc
+27.12.2013
 Team members
 * Asim Ashraf
-* Henrik Reponne
+* Henrik Reponen
 * Sebastian Rosenqvist
 * Quentin de Lattre 
 
-27.12.2013
  
 ## 1. Introduction
  
 For this class, we had an assignment to design and develop a CMS from the ground up. We didn’t want to go the classic way of designing a Wordpress style blog so we tried to come up with a smarter idea. Eventually, we decided to develop a collaborative online work platform where users can edit documents for themselves and share some more with group members. It would be some sort of bridge between Google Docs for real-time text editing and Dropbox for the principle of shared folders. 
-
-// Overall description of the system
  
 ## 2. Use cases
  
@@ -220,24 +218,6 @@ Usability: how do you ensure that your system is easy to use?
 Reliability: how do you ensure that your system is reliable? List the possible system failures and how the system reacts to them
 What other non-functional requirements should be documented?
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 5. User interface
 
