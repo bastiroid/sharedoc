@@ -268,9 +268,22 @@ Depiction of one use case as a flow chart
 
 ### 4.2 Non-functional requirements
 
-Usability: how do you ensure that your system is easy to use?
-Reliability: how do you ensure that your system is reliable? List the possible system failures and how the system reacts to them
-What other non-functional requirements should be documented?
+Security
+
+* access to documents is controlled by user
+* user inputs will be sanitized
+* passwords will be added a salt and hashed with SHA-256
+
+Reliability
+
+* document history is stored so the user can go back to a older version of the document if something goes wrong
+* very reliable relational databases are used
+* run on school servers which are well maintained
+
+Usability
+
+* simple intuitive design is used on the user interface
+* users are given lots of feedback on errors or actions completed
  
 
 ## 5. User interface
@@ -301,3 +314,7 @@ This view shows the groups page with an iconic listing of groups a user belongs 
 This is the main view for document editing.  As previously mention is the focus on the document and the dark color palette helps to keep the document in the foreground.
 
 The right side of the page gives space for editorial elements like fonts and and font size. Later expansion of these elements can be achieved without problems.
+
+
+## 6. Development process
+
