@@ -19,7 +19,7 @@ We decided to agree on three levels of users : Basic users, that would be the ge
 
 ### 2.2 Use case diagrams
 
-![Diagram](https://lh6.googleusercontent.com/gCukFhTMOcfsc2erzyW8C0slnAMUUC2xv9su8o-0o5ZX44-qWWmHdfTWZ7h20vDiilxC3uO01WdRm0oGRI0RVM4F6Pij_bs9GH9N8ulPH6vsM2ZEK_pryO8WHQ "Use case diagram")
+![Diagram](https://raw.github.com/henrikre/sharedoc/master/usercase.png "Use case diagram")
 
 ### 2.3 Use case scenarios
 
