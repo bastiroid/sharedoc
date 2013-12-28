@@ -317,3 +317,6 @@ The right side of the page gives space for editorial elements like fonts and and
 
 ## 6. Development process
 
+The development process of our choice is the agile SCRUM way. The backlogs provide a good way of chopping the project into tiny managable bites. These tiny projects are easier to distribute among team members according to their knowledge and expertise. Accomplished sprints are each ready and tested chunks of the project which will prove valuable in our limited time.
+
+Due to limited time and the workload of other courses we won't be able to follow SCRUM to the letter - I doubt we can have daily meetups, since we are not full-time developers, nor can we necessarily work constant hours and use that information for burndown charts and make accurate estimates of product release. As a beginner it will be extremely hard to estimate the time required per task. Nonetheless I believe SCRUM is the right way of working on any software project and thus it will be important to practice it.
