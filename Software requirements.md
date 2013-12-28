@@ -248,6 +248,7 @@ Adding a person to a collaboration group as a flowchart
 ## 3. System architecture
  
 ### 3.1 High-level overview of the system
+At the backend a relational database is used to store all the data on users, their groups and documents. The invitation system created invitation tokens that are also stored in the system. Editing 
 ### 3.1 Main modules and their functions represented
  
 ## 4. Requirements
