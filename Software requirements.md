@@ -246,10 +246,12 @@ Adding a person to a collaboration group as a flowchart
 
 
 ## 3. System architecture
- 
-### 3.1 High-level overview of the system
-At the backend a relational database is used to store all the data on users, their groups and documents. The invitation system created invitation tokens that are also stored in the system. Editing 
-### 3.1 Main modules and their functions represented
+
+At the backend a relational database is used to store all the data on users, their groups and documents. The invitation system creates invitation tokens that are also stored in the system. Document history is stored in the database so a previous version of the document can be retrieved if necessary. The groups and access to them are also part of the database.
+
+The language interacting with the database is going to be PHP and perhaps a framework such as Laravel is going to be used in the system as well to better handle authentication, sending invitation emails and so on.
+
+The app itself is presented in HTML, CSS and Javascript, the normal web languages.
  
 ## 4. Requirements
 
