@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `ipp_users` (
   `first_name` VARCHAR(255) NOT NULL default '',
   `last_name` VARCHAR(255) NOT NULL default '',
   `password` VARCHAR(255) NOT NULL default '',
-  `salt` VARCHAR(255) NOT NULL default '',
+  `creation_date` VARCHAR(255) NOT NULL default '',
   `email` VARCHAR(255) NOT NULL default '',
   `avatar` VARCHAR(255) NOT NULL default '',
   `superadmin` BOOLEAN default FALSE,
@@ -14,19 +14,19 @@ CREATE TABLE IF NOT EXISTS `ipp_users` (
 )
 
 /* 	REGISTERING SUPERADMIN
-	Password has to be hashed, salt to be determined, no avatar yet
+	Password has to be hashed, creation_date to be determined, no avatar yet
 */
 
-INSERT INTO `ipp_users` (`first_name`, `last_name`, `password`, `salt`, `email`, `avatar`, `superadmin`)
-VALUES					('super', 'admin', 'adminpwd', 'admin_salt’, 'admin.internet@programming.fi', 'to_be_defined', TRUE)
+INSERT INTO `ipp_users` (`first_name`, `last_name`, `password`, `creation_date`, `email`, `avatar`, `superadmin`)
+VALUES					('super', 'admin', 'adminpwd', 'admin_creation_date', 'admin.internet@programming.fi', 'to_be_defined', TRUE)
 
 /* 	REGISTERING STANDARD USERS
 	Password has to be hashed !!!
 	First run loggin SQL to check that given email/password are unique in the table !
 */
 
-INSERT INTO `ipp_users` (`first_name`, `last_name`, `password`, `salt`, `email`, `avatar`)
-VALUES					(/* user_input */, /* user_input */, /* user_input */, /* generated_salt */, /* user_input */, /* manage file upload */)
+INSERT INTO `ipp_users` (`first_name`, `last_name`, `password`, `creation_date`, `email`, `avatar`)
+VALUES					(/* user_input */, /* user_input */, /* user_input */, /* generated_creation_date */, /* user_input */, /* manage file upload */)
 
 /* 	LOGGING USERS IN
 	total should be = 1 that means, only one match, then loggin is succesful
