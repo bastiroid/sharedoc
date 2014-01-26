@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `ipp_users` (
 )
 
 /* 	REGISTERING SUPERADMIN
-	Password has to be hashed, creation_date to be determined, no avatar yet
+	Password has to be hashed, SALT to be determined by hashing creation_date, no avatar img yet
 */
 
 INSERT INTO `ipp_users` (`first_name`, `last_name`, `password`, `creation_date`, `email`, `avatar`, `superadmin`)
@@ -38,3 +38,40 @@ SELECT count(`id`) as total
 FROM `ipp_users` 
 WHERE `email`=/* user_input */
 AND `password`=/* user_input */
+
+/* 	CREATING IPP_GROUP TABLE
+*/
+
+CREATE TABLE IF NOT EXISTS `ipp_group` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` VARCHAR(255) NOT NULL default '',
+  `admin` VARCHAR(255) NOT NULL default '',
+  /*   `token` VARCHAR(255) NOT NULL default '', */
+  `color_code` VARCHAR(255) NOT NULL default '', /* hexadecimal code */
+  PRIMARY KEY  (`id`)
+)
+
+/* 	CREATING IPP_GROUP_JOIN TABLE
+*/
+
+CREATE TABLE IF NOT EXISTS `ipp_group_join` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `moderator` BOOLEAN default FALSE,
+  PRIMARY KEY  (`id`)
+)
+
+
+/* 	SELECTING GROUPS FOR EACH USER
+	
+*/
+
+SELECT `ipp_group`.`name`
+FROM `ipp_group`
+INNER JOIN `ipp_group_join`
+ON `ipp_group_join`.`group_id` = `ipp_group`.`id`
+INNER JOIN `ipp_users`
+ON `ipp_group_join`.`user_id` = `ipp_users`.`id`
+WHERE `ipp_group_join`.`user_id` = /* Current user id */
+
