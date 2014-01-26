@@ -11,14 +11,14 @@ CREATE TABLE IF NOT EXISTS `ipp_users` (
   `avatar` VARCHAR(255) NOT NULL default '',
   `superadmin` BOOLEAN default FALSE,
   PRIMARY KEY  (`id`)
-)
+);
 
 /* 	REGISTERING SUPERADMIN
 	Password has to be hashed, SALT to be determined by hashing creation_date, no avatar img yet
 */
 
 INSERT INTO `ipp_users` (`first_name`, `last_name`, `password`, `creation_date`, `email`, `avatar`, `superadmin`)
-VALUES					('super', 'admin', 'adminpwd', 'admin_creation_date', 'admin.internet@programming.fi', 'to_be_defined', TRUE)
+VALUES					('super', 'admin', 'adminpwd', 'admin_creation_date', 'admin.internet@programming.fi', 'to_be_defined', TRUE);
 
 /* 	REGISTERING STANDARD USERS
 	Password has to be hashed !!!
@@ -26,7 +26,7 @@ VALUES					('super', 'admin', 'adminpwd', 'admin_creation_date', 'admin.internet
 */
 
 INSERT INTO `ipp_users` (`first_name`, `last_name`, `password`, `creation_date`, `email`, `avatar`)
-VALUES					(/* user_input */, /* user_input */, /* user_input */, /* generated_creation_date */, /* user_input */, /* manage file upload */)
+VALUES					(/* user_input */, /* user_input */, /* user_input */, /* generated_creation_date */, /* user_input */, /* manage file upload */);
 
 /* 	LOGGING USERS IN
 	total should be = 1 that means, only one match, then loggin is succesful
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `ipp_group` (
   /*   `token` VARCHAR(255) NOT NULL default '', */
   `color_code` VARCHAR(255) NOT NULL default '', /* hexadecimal code */
   PRIMARY KEY  (`id`)
-)
+);
 
 /* 	CREATING IPP_GROUP_JOIN TABLE
 */
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `ipp_group_join` (
   `group_id` int(11) NOT NULL,
   `moderator` BOOLEAN default FALSE,
   PRIMARY KEY  (`id`)
-)
+);
 
 
 /* 	SELECTING GROUPS FOR EACH USER
