@@ -1,0 +1,16 @@
+/********************************
+*	Forms
+********************************/
+label {
+	display: block;
+}
+
+form ul {
+	padding: 0;
+	margin: 0;
+}
+
+form ul li {
+	list-style: none;
+	margin-top: 1em;
+}
