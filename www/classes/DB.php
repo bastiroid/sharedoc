@@ -6,7 +6,15 @@ class DB {
   private $_connection,
           $_query,
           $_results,
+          $_error,
           $_count = 0;
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Constructor establishes connection with given config
+  | Is private, connection instance is acquired with getInstance()
+  |--------------------------------------------------------------------------------------
+  */
 
   private function __construct(){
     try {
@@ -18,11 +26,18 @@ class DB {
 
       $this->_connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
-      return $this->_connection;
     } catch (PDOException $e) {
       die($e->getMessage());
     }
   }
+
+
+
+   /*
+  |--------------------------------------------------------------------------------------
+  | Gets an connection instance if one is not found
+  |--------------------------------------------------------------------------------------
+  */
 
   public static function getInstance(){
     if (!isset(self::$_instance)) {
@@ -31,28 +46,104 @@ class DB {
     return self::$_instance;
   }
 
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Execute SQL query with binded values from an array
+  |--------------------------------------------------------------------------------------
+  */
+
   public function query($query, $bindings){
-    try{
-      $stmt = $this->_connection->prepare($query);
-      $stmt->execute($bindings);
-      return $stmt;
-    } catch (PDOException $e){
-      return false;
-    }
+    $this->_errors = false;
+
+
+    $this->_query = $this->_connection->prepare($query);
+    $this->_query->execute($bindings);
+
+    $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+
+    // if ($this->_query = $this->_connection->prepare($query)) {
+      
+    //   if (count($bindings)) {
+
+    //     foreach ($bindings as $bind => $value) {
+    //       $this->_query->bindValue($bind, $value);
+    //     }
+        
+    //   }
+
+    //   if ($this->_query->execute()) {
+    //     $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+    //     $this->_count = $this->_query->rowCount();
+    //   } else {
+    //     $this->_error = true;
+    //   }
+    // }
+
+    return $this;
     
   }
 
-  public function get($tableName){
-    try {
-      $results = $this->_connection->query("SELECT * FROM $tableName");
 
-      return ($results->rowCount() > 0)
-      ? $results
-      : false;
-    } catch (PDOException $e) {
-      return false;
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Get all from database table
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function get($tableName){
+    $this->_errors = false;
+
+    if ($this->_query = $this->_connection->prepare("SELECT * FROM $tableName")) {
+
+      if ($this->_query->execute()) {
+        $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+        $this->_count = $this->_query->rowCount();
+      } else {
+        $this->_error = true;
+      }
     }
 
+    return $this;
+    
+  }
+
+
+
+    /*
+  |--------------------------------------------------------------------------------------
+  | Get results
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function results() {
+    return $this->_results;
+  }
+
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Get count
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function count(){
+    return $this->_count;
+  }
+
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Get error
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function error(){
+    return $this->_error;
   }
 
 }
