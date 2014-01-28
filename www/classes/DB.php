@@ -54,35 +54,19 @@ class DB {
   |--------------------------------------------------------------------------------------
   */
 
-  public function query($query, $bindings){
-    $this->_errors = false;
+  public function query($query, $bindings = array()){
+    $this->_error = false;
 
+    try {
+      $this->_query = $this->_connection->prepare($query);
+      $this->_query->execute($bindings);
 
-    $this->_query = $this->_connection->prepare($query);
-    $this->_query->execute($bindings);
-
-    $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
-
-    // if ($this->_query = $this->_connection->prepare($query)) {
-      
-    //   if (count($bindings)) {
-
-    //     foreach ($bindings as $bind => $value) {
-    //       $this->_query->bindValue($bind, $value);
-    //     }
-        
-    //   }
-
-    //   if ($this->_query->execute()) {
-    //     $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
-    //     $this->_count = $this->_query->rowCount();
-    //   } else {
-    //     $this->_error = true;
-    //   }
-    // }
+      $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+      $this->_error = true;
+    }
 
     return $this;
-    
   }
 
 
@@ -94,7 +78,7 @@ class DB {
   */
 
   public function get($tableName){
-    $this->_errors = false;
+    $this->_error = false;
 
     if ($this->_query = $this->_connection->prepare("SELECT * FROM $tableName")) {
 
@@ -106,8 +90,7 @@ class DB {
       }
     }
 
-    return $this;
-    
+    return $this;  
   }
 
 

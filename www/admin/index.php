@@ -4,7 +4,7 @@ require '../sharedoc.php';
 
 
 // Fetch all users
-// $users = DB::getInstance()->get('ipp_users');
+$users = DB::getInstance()->get('ipp_users');
 
 // $users = DB::getInstance()->query(
 // 	'SELECT * FROM ipp_users WHERE email = :email',
@@ -12,9 +12,9 @@ require '../sharedoc.php';
 // 		':email' => 'herf'
 // 	));
 
-$users = DB::getInstance()->query(
-	"SELECT * FROM ipp_users WHERE email = ?", array(
-		'hern'));
+// $users = DB::getInstance()->query(
+// 	"SELECT * FROM ipp_users WHERE email = :email", array(
+// 		':email' => 'hern'));
 
 view('admin/admin', array(
 	'users' => $users
