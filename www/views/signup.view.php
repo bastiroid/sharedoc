@@ -4,23 +4,28 @@
 <form action="" method="post">
 	<ul>
 		<li>
-			<label for="firstname">First name</label>
-			<input type="text" name="firstname" id="firstname">
+			<label for="first_name">First name</label>
+			<input type="text" name="first_name" id="first_name" value="<?= escape(Input::get('first_name')) ?>">
 		</li>
 
 		<li>
-			<label for="lastname">Last name</label>
-			<input type="text" name="lastname" id="lastname">
+			<label for="last_name">Last name</label>
+			<input type="text" name="last_name" id="last_name" value="<?= escape(Input::get('last_name')) ?>">
 		</li>
 
 		<li>
 			<label for="email">Email address</label>
-			<input type="text" name="email" id="email">
+			<input type="text" name="email" id="email" value="<?= escape(Input::get('email')) ?>">
 		</li>
 
 		<li>
-			<label for="pwd">Password</label>
-			<input type="password" name="pwd" id="pwd">
+			<label for="password">Password</label>
+			<input type="password" name="password" id="password">
+		</li>
+
+		<li>
+			<label for="pwd_again">Password</label>
+			<input type="password" name="pwd_again" id="pwd_again">
 		</li>
 
 		<li>

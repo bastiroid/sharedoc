@@ -25,5 +25,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 view('index', $data);
-$users = DB::getInstance()->get('ipp_users');
+
 ?>

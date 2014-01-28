@@ -9,7 +9,13 @@ class Validate {
 		$this->_db = DB::getInstance();
 	}
 
+	/*
+	|--------------------------------------------------------------------------------------
+	| Validation function
+	|--------------------------------------------------------------------------------------
+	*/
 	public function check($source, $items = array()){
+
 		foreach ($items as $item => $rules) {
 			
 			foreach ($rules as $rule => $rule_value) {
@@ -17,8 +23,9 @@ class Validate {
 				$value = trim($source[$item]);
 				$items = escape($item);
 
-				if ($rule === 'required' && empty($value)) {
+				if ($rule == 'required' && empty($value)) {
 					$this->addError("{$item} is required");
+
 				} else if(!empty($value)) {
 
 					switch ($rule) {
@@ -41,13 +48,9 @@ class Validate {
 							break;
 
 						case 'unique':
-							$duplicate = $this->_db->query("SELECT * FROM :rule_value WHERE :item = :value", array(
-								':item' => $item,
-								':value' => $value,
-								':rule_value' => $rule_value
-							));
+							$check = $this->_db->get('ipp_users', array($item, '=', $value));
 
-							if (!$duplicate->count()) {
+							if (!$check->count()) {
 								$this->addError("{$item} already exists.");
 							}
 

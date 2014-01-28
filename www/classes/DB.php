@@ -54,20 +54,20 @@ class DB {
   |--------------------------------------------------------------------------------------
   */
 
-  public function query($query, $bindings = array()){
-    $this->_error = false;
+  // public function query($query, $bindings = array()){
+  //   $this->_error = false;
 
-    try {
-      $this->_query = $this->_connection->prepare($query);
-      $this->_query->execute($bindings);
+  //   try {
+  //     $this->_query = $this->_connection->prepare($query);
+  //     $this->_query->execute($bindings);
 
-      $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
-    } catch (PDOException $e) {
-      $this->_error = true;
-    }
+  //     $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+  //   } catch (PDOException $e) {
+  //     $this->_error = true;
+  //   }
 
-    return $this;
-  }
+  //   return $this;
+  // }
 
 
 
@@ -77,25 +77,98 @@ class DB {
   |--------------------------------------------------------------------------------------
   */
 
-  public function get($tableName){
+  public function getAll($tableName){
     $this->_error = false;
 
-    if ($this->_query = $this->_connection->prepare("SELECT * FROM $tableName")) {
+    try {
+      if ($this->_query = $this->_connection->prepare("SELECT * FROM $tableName")) {
 
-      if ($this->_query->execute()) {
-        $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
-        $this->_count = $this->_query->rowCount();
-      } else {
-        $this->_error = true;
+        if ($this->_query->execute()) {
+          $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+          $this->_count = $this->_query->rowCount();
+        } else {
+          $this->_error = true;
+        }
       }
+    } catch (PDOException $e) {
+      $this->_error = true;
     }
+    
 
     return $this;  
   }
 
 
 
-    /*
+  /*
+  |--------------------------------------------------------------------------------------
+  | General SQL query with bindings
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function query($sql, $bindings = array()) {
+    $this->_error = false;
+    if($this->_query = $this->_connection->prepare($sql)) {
+      $x = 1;
+      if(count($bindings)) {
+        foreach($bindings as $bind) {
+          $this->_query->bindValue($x, $bind);
+          $x++;
+        }
+
+      }
+
+      if($this->_query->execute()) {
+        $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+        $this->_count = $this->_query->rowCount();
+      } else {
+        $this->_error = true;
+      }
+    }
+    return $this;
+  }
+
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Multipurpose SQL action function
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function action($action, $table, $where = array()) {
+    if(count($where) === 3) {
+      $operators = array('=', '>', '<', '>=', '<=');
+
+      $field    = $where[0];
+      $operator   = $where[1];
+      $value    = $where[2];
+
+      if(in_array($operator, $operators)) {
+        $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
+        if($this->query($sql, array($value))) {
+          return $this;
+        }
+      }
+    }
+    return false;
+  }
+
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Get from table where x = y
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function get($table, $where){
+    return $this->action('SELECT *', $table, $where);
+  }
+
+
+
+  /*
   |--------------------------------------------------------------------------------------
   | Get results
   |--------------------------------------------------------------------------------------
@@ -103,6 +176,18 @@ class DB {
 
   public function results() {
     return $this->_results;
+  }
+
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Get first result
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function first() {
+    return $this->results()[0];
   }
 
 
