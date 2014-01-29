@@ -10,6 +10,10 @@ $GLOBALS['config'] = array(
 		'username' => 'root',
 		'password' => '',
 		'database' => 'sharedoc'
+	),
+	'session' => array(
+		'session_name' => 'user',
+		'token_name' => 'token'
 	)
 );
 

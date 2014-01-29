@@ -45,25 +45,25 @@ if (Input::exists()) {
 
 	if ($validation->passed()) {
 
-		echo "Passed!";
-		// DB::getInstance()->query(
-		// "INSERT INTO ipp_users(first_name, last_name, email, password)
-		// VALUES(:first_name, :last_name, :email_address, :password)",
-		// array(
-		// 	':first_name' => $first_name,
-		// 	':last_name' => $last_name,
-		// 	':email_address' => $email_address,
-		// 	':password' => $password
-		// ));
+		DB::getInstance()->insert('ipp_users', array(
+			'first_name' => 'Long',
+			'last_name' => 'John'
+		));
 
 		$data['status'] = 'Your account has been created succesfully.';
 
 	} else {
+
 		$data['status'] = 'Please fill in all required data.';
+
+		foreach ($validation->errors() as $error) {
+			$data['status'] .= "<p>$error</p>";
+		}
+		
 		print_r($validation->errors());
 	}
 	
 }
 
-view('signup', $data);
+view('signup', $rows);
 ?>

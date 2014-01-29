@@ -49,8 +49,8 @@ class Validate {
 
 						case 'unique':
 							$check = $this->_db->get('ipp_users', array($item, '=', $value));
-
-							if (!$check->count()) {
+							
+							if ($check->count() > 0) {
 								$this->addError("{$item} already exists.");
 							}
 

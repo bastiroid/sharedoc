@@ -50,29 +50,6 @@ class DB {
 
   /*
   |--------------------------------------------------------------------------------------
-  | Execute SQL query with binded values from an array
-  |--------------------------------------------------------------------------------------
-  */
-
-  // public function query($query, $bindings = array()){
-  //   $this->_error = false;
-
-  //   try {
-  //     $this->_query = $this->_connection->prepare($query);
-  //     $this->_query->execute($bindings);
-
-  //     $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
-  //   } catch (PDOException $e) {
-  //     $this->_error = true;
-  //   }
-
-  //   return $this;
-  // }
-
-
-
-  /*
-  |--------------------------------------------------------------------------------------
   | Get all from database table
   |--------------------------------------------------------------------------------------
   */
@@ -119,7 +96,7 @@ class DB {
       }
 
       if($this->_query->execute()) {
-        $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+        //$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
         $this->_count = $this->_query->rowCount();
       } else {
         $this->_error = true;
@@ -164,6 +141,59 @@ class DB {
 
   public function get($table, $where){
     return $this->action('SELECT *', $table, $where);
+  }
+
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Insert into database table
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function insert($tableName, $data = array()) {
+
+    $keys = array_keys($data);
+    $values = str_repeat("?,", count($data)-1).'?';
+
+    $sql = "INSERT INTO $tableName (`" .implode ('`, `' , $keys ) . "`) VALUES ( $values )" ;
+    echo $sql;
+    if (!$this->query($sql, $data)->error()) {
+      return true;
+    }
+
+    return false;
+
+  }
+
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | Update item from database table
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function update($tableName, $id, $data = array()) {
+
+    $set = '';
+    $x = 1;
+
+    foreach ($data as $name => $value) {
+      $set .= "$name = ?";
+      if ($x < count($data)) {
+        $set .= ', ';
+      }
+      $x++;
+    }
+
+    $sql = "UPDATE $tableName SET $set WHERE id = $id";
+
+    if (!$this->query($sql, $data)->error()) {
+      return true;
+    }
+    return false;
+
   }
 
 
