@@ -17,33 +17,39 @@ class Validate {
 	public function check($source, $items = array()){
 
 		foreach ($items as $item => $rules) {
+			$value = trim($source[$item]);
+			$alias = $item;
 			
 			foreach ($rules as $rule => $rule_value) {
 
-				$value = trim($source[$item]);
+				if (isset($rules['alias'])) {
+					$alias = $rules['alias'];
+				}
+
+				$alias = escape(ucfirst($alias));			
 				$items = escape($item);
 
 				if ($rule == 'required' && empty($value)) {
-					$this->addError("{$item} is required");
+					$this->addError("{$alias} is required");
 
 				} else if(!empty($value)) {
 
 					switch ($rule) {
 						case 'min':
 							if (strlen($value) < $rule_value) {
-								$this->addError("{$item} must be a minimum of {$rule_value} characters.");
+								$this->addError("{$alias} must be a minimum of {$rule_value} characters.");
 							}
 							break;
 
 						case 'max':
 							if (strlen($value) > $rule_value) {
-								$this->addError("{$item} must be a maximum of {$rule_value} characters.");
+								$this->addError("{$alias} must be a maximum of {$rule_value} characters.");
 							}
 							break;
 
 						case 'matches':
 							if ($value != $source[$rule_value]) {
-								$this->addError("{$item} must match {$rule_value}.");
+								$this->addError("{$alias}s must match.");
 							}
 							break;
 
@@ -51,7 +57,7 @@ class Validate {
 							$check = $this->_db->get('ipp_users', array($item, '=', $value));
 							
 							if ($check->count() > 0) {
-								$this->addError("{$item} already exists.");
+								$this->addError("{$alias} already exists.");
 							}
 
 							break;

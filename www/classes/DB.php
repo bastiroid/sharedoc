@@ -6,7 +6,7 @@ class DB {
   private $_connection,
           $_query,
           $_results,
-          $_error,
+          $_error = false,
           $_count = 0;
 
   /*
@@ -18,16 +18,13 @@ class DB {
 
   private function __construct(){
     try {
-      $this->_connection = new \PDO(
-        'mysql:host=' . Config::get('mysql/host') . 
-        ';dbname=' . Config::get('mysql/database') . '',
-        Config::get('mysql/username'),
-        Config::get('mysql/password'));
-
-      $this->_connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-
-    } catch (PDOException $e) {
-      die($e->getMessage());
+      $this->_connection = new PDO('mysql:host=' . Config::get('mysql/host') . ';
+                    dbname=' . Config::get('mysql/database'),
+                    Config::get('mysql/username'),
+                    Config::get('mysql/password')
+      );
+    } catch(PDOException $e){
+        die($e->getMessage());
     }
   }
 
@@ -44,6 +41,35 @@ class DB {
       self::$_instance = new DB();
     }
     return self::$_instance;
+  }
+
+
+
+  /*
+  |--------------------------------------------------------------------------------------
+  | General SQL query with bindings
+  |--------------------------------------------------------------------------------------
+  */
+
+  public function query($sql, $params = array()){
+    $this->_error = false;
+    if($this->_query = $this->_connection->prepare($sql)){
+        $x = 1;
+        if(count($params)){
+            foreach($params as $param){
+                $this->_query->bindValue($x, $param);
+                $x++;
+            }
+        }
+
+        if($this->_query->execute()){
+           $this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+            $this->_count = $this->_query->rowCount();
+        } else{
+            $this->_error = true;
+        }
+    }
+    return $this;
   }
 
 
@@ -79,41 +105,11 @@ class DB {
 
   /*
   |--------------------------------------------------------------------------------------
-  | General SQL query with bindings
-  |--------------------------------------------------------------------------------------
-  */
-
-  public function query($sql, $bindings = array()) {
-    $this->_error = false;
-    if($this->_query = $this->_connection->prepare($sql)) {
-      $x = 1;
-      if(count($bindings)) {
-        foreach($bindings as $bind) {
-          $this->_query->bindValue($x, $bind);
-          $x++;
-        }
-
-      }
-
-      if($this->_query->execute()) {
-        //$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
-        $this->_count = $this->_query->rowCount();
-      } else {
-        $this->_error = true;
-      }
-    }
-    return $this;
-  }
-
-
-
-  /*
-  |--------------------------------------------------------------------------------------
   | Multipurpose SQL action function
   |--------------------------------------------------------------------------------------
   */
 
-  public function action($action, $table, $where = array()) {
+  private function action($action, $table, $where = array()) {
     if(count($where) === 3) {
       $operators = array('=', '>', '<', '>=', '<=');
 
@@ -123,7 +119,7 @@ class DB {
 
       if(in_array($operator, $operators)) {
         $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
-        if($this->query($sql, array($value))) {
+        if(!$this->query($sql, array($value))->error()) {
           return $this;
         }
       }
@@ -153,11 +149,14 @@ class DB {
 
   public function insert($tableName, $data = array()) {
 
-    $keys = array_keys($data);
-    $values = str_repeat("?,", count($data)-1).'?';
+    if (count($data)) {
+      $keys = array_keys($data);
+      $values = str_repeat("?,", count($data)-1).'?';
 
-    $sql = "INSERT INTO $tableName (`" .implode ('`, `' , $keys ) . "`) VALUES ( $values )" ;
-    echo $sql;
+      $sql = "INSERT INTO $tableName (`" .implode ('`, `' , $keys ) . "`) VALUES ( $values )";
+    }
+    
+
     if (!$this->query($sql, $data)->error()) {
       return true;
     }
@@ -216,7 +215,7 @@ class DB {
   |--------------------------------------------------------------------------------------
   */
 
-  public function first() {
+  public function first(){
     return $this->results()[0];
   }
 

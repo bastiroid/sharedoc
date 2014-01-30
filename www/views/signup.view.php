@@ -24,11 +24,12 @@
 		</li>
 
 		<li>
-			<label for="pwd_again">Password</label>
+			<label for="pwd_again">Password again</label>
 			<input type="password" name="pwd_again" id="pwd_again">
 		</li>
 
 		<li>
+			<input type="hidden" name="token" value="<?= Token::generate(); ?>">
 			<input type="submit" value="Create new account">
 		</li>
 	</ul>

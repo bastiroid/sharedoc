@@ -5,65 +5,84 @@ $data = array();
 
 if (Input::exists()) {
 
-	$validate = new Validate();
-	$validation = $validate->check($_POST, $rows = array(
+	if (Token::check(Input::get('token'))) {
 
-		'first_name' => array(
-			'name' => 'First name',
-			'required' => true,
-			'min' => 2,
-			'max' => 30
-		),
+		$validate = new Validate();
+		$validation = $validate->check($_POST, $rows = array(
 
-		'last_name' => array(
-			'name' => 'Last name',
-			'required' => true,
-			'min' => 2,
-			'max' => 30
-		),
+			'first_name' => array(
+				'alias' => 'First name',
+				'required' => true,
+				'min' => 2,
+				'max' => 30
+			),
 
-		'email' => array(
-			'name' => 'Email',
-			'unique' => 'ipp_users',
-			'required' => true,
-			'min' => 4,
-			'max' => 50
-		),
+			'last_name' => array(
+				'alias' => 'Last name',
+				'required' => true,
+				'min' => 2,
+				'max' => 30
+			),
 
-		'password' => array(
-			'name' => 'Password',
-			'required' => true,
-			'min' => 8,
-			'max' => 64
-		),
+			'email' => array(
+				'alias' => 'Email',
+				'unique' => 'ipp_users',
+				'required' => true,
+				'min' => 4,
+				'max' => 50
+			),
 
-		'pwd_again' => array(
-			'required' => true,
-			'matches' => 'password'
-		)
-	));
+			'password' => array(
+				'alias' => 'Password',
+				'required' => true,
+				'min' => 8,
+				'max' => 64
+			),
 
-	if ($validation->passed()) {
-
-		DB::getInstance()->insert('ipp_users', array(
-			'first_name' => 'Long',
-			'last_name' => 'John'
+			'pwd_again' => array(
+				'alias' => 'Password',
+				'required' => true,
+				'matches' => 'password'
+			)
 		));
 
-		$data['status'] = 'Your account has been created succesfully.';
+		if ($validation->passed()) {
 
-	} else {
+			$user = new User();
 
-		$data['status'] = 'Please fill in all required data.';
+			$salt = Hash::salt(32);
 
-		foreach ($validation->errors() as $error) {
-			$data['status'] .= "<p>$error</p>";
+			try {
+
+				$user->create(array(
+					'first_name' => Input::get('first_name'),
+					'last_name' => Input::get('last_name'),
+					'email' => Input::get('email'),
+					'password' => Hash::make(Input::get('password'), $salt),
+					'salt' => $salt
+				));
+
+				Session::flash('success', 'You registered successfully and can now login!');
+
+				$data['status'] = 'Your account has been created succesfully.';
+				Redirect::to('index.php');
+
+			} catch(Exception $e) {
+				die($e->getMessage());
+			}
+
+		} else {
+
+			$data['status'] = 'Please fill in all required data.';
+
+			foreach ($validation->errors() as $error) {
+				$data['status'] .= "<p>$error</p>";
+			}
+			
 		}
 		
-		print_r($validation->errors());
 	}
-	
 }
 
-view('signup', $rows);
+view('signup', $data);
 ?>
