@@ -65,7 +65,7 @@ if (Input::exists()) {
 				Session::flash('success', 'You registered successfully and can now login!');
 
 				$data['status'] = 'Your account has been created succesfully.';
-				Redirect::to('index.php');
+				Redirect::to('login.php');
 
 			} catch(Exception $e) {
 				die($e->getMessage());

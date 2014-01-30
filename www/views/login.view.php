@@ -15,6 +15,14 @@
 		</li>
 
 		<li>
+			<label for="remember">
+				<input type="checkbox" name="remember" id="remember">
+				Remember me
+			</label>
+			
+		</li>
+
+		<li>
 			<input type="hidden" name="token" value="<?= Token::generate(); ?>">
 			<input type="submit" value="Login">
 		</li>
