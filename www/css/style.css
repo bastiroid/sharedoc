@@ -22,7 +22,7 @@ label {
 	display: block;
 }
 
-.form {
+.form, .form2 {
   background: #2D2F31;
   margin: 10% auto;
   width: 390px;
@@ -31,12 +31,7 @@ label {
   font-family: 'Roboto';
 }
 .form2 {
-  background: #2D2F31;
-  margin: 10% auto;
-  width: 390px;
   height: 400px;
-  position: relative;
-  font-family: 'Roboto';
 }
 .form_header {
   background: #22A86C;
@@ -134,7 +129,7 @@ form input[type=checkbox] {
 
 .signupbtn {
     width: 180px;
-
+    margin-top: 5px;
 }
     
     
