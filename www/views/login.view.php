@@ -14,7 +14,7 @@
                         </li>
                         <li>
                             <label for="password"></label>
-                            <input type="password" placeholder="Password" />
+                            <input type="password" placeholder="Password" name="password" id="password" />
                         </li>
                         <li>
                             <label for="remember">

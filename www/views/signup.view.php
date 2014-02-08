@@ -23,11 +23,11 @@
                         </li>
                         <li>
                             <label for="password"></label>
-                            <input type="password" placeholder="Password" />
+                            <input type="password" placeholder="Password" name="password" id="password" />
                         </li>
                         <li>
                             <label for="password"></label>
-                            <input type="password" placeholder="Password Again" />
+                            <input type="password" placeholder="Password Again" name="pwd_again" id="pwd_again" />
                         </li>
                         <li>
                             <input type="hidden" name="token" value="<?= Token::generate(); ?>">

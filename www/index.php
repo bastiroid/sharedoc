@@ -2,7 +2,11 @@
 
 require_once 'sharedoc.php';
 
-$user = new User();
-$data = $user->data();
+if (!$user->isLoggedIn) {
+	Redirect::to('login.php');
+} else {
+	$user = new User();
+	$data = $user->data();
 
-view('index', $data);
+	view('index', $data);
+}
