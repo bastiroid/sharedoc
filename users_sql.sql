@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `ipp_users` (
   `first_name` VARCHAR(255) NOT NULL default '',
   `last_name` VARCHAR(255) NOT NULL default '',
   `password` VARCHAR(255) NOT NULL default '',
+  `salt` VARCHAR(64) NOT NULL default '',
   `creation_date` VARCHAR(255) NOT NULL default '',
   `email` VARCHAR(255) NOT NULL default '',
   `avatar` VARCHAR(255) NOT NULL default '',
