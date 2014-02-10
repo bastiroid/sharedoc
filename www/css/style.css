@@ -146,33 +146,33 @@ form input[type=checkbox] {
   margin-top: 5px;
 }
     
-::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
   color: #22A86C;
 }
-::-webkit-input-placeholder:focus {
+input:focus::-webkit-input-placeholder {
   color: #ffffff;
 }
-:-moz-placeholder {
+input:-moz-placeholder {
   /* Firefox 18- */
   color: #22A86C;
 }
-:-moz-placeholder:focus {
+input:focus:-moz-placeholder {
   /* Firefox 18- */
   color: #ffffff;
 }
-::-moz-placeholder {
+input::-moz-placeholder {
   /* Firefox 19+ */
   color: #22A86C;
 }
-::-moz-placeholder:focus {
+input:focus::-moz-placeholder {
   /* Firefox 19+ */
   color: #ffffff;
 }
-:-ms-input-placeholder {
+input:-ms-input-placeholder {
   color: #22A86C;
 }
-:-ms-input-placeholder:focus {
-  color: #22A86C;
+input:focus:-ms-input-placeholder {
+  color: #ffffff;
 }
 
 #header {
