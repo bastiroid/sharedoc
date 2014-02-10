@@ -76,7 +76,7 @@ if (Input::exists()) {
 			$data['status'] = 'Please fill in all required data.';
 
 			foreach ($validation->errors() as $error) {
-				$data['status'] .= "<p class="error">$error</p>";
+				$data['status'] .= "<p class='error'>$error</p>";
 			}
 			
 		}
