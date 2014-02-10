@@ -8,23 +8,20 @@ if (Session::exists('success')) {
 	echo Session::flash('success');
 }
 
-$user = new User();
-if ($user->isLoggedIn()) {
-	echo "Logged in";
-}
-
 if (Input::exists()) {
 	
 	if (Token::check(Input::get('token'))) {
 		
 		$validate = new Validate();
-		$validation = $validate->check($_POST, array(
+		$validation = $validate->check($_POST, $rows = array(
 
 			'email' => array(
+				'alias' => 'Email',
 				'required' => true
 			),
 
 			'password' => array(
+				'alias' => 'Password',
 				'required' => true
 			)
 
@@ -32,7 +29,7 @@ if (Input::exists()) {
 
 		if ($validation->passed()) {
 			$user = new User();
-			$remember = (Input::get('remember') === 'on' ? true : false);
+			//$remember = (Input::get('remember') === 'on' ? true : false);
 
 			$login = $user->login(Input::get('email'), Input::get('password'), $remember);
 

@@ -115,7 +115,12 @@ form input[type=checkbox] {
   margin-bottom: 13px;
   padding-left: 15px;
 }
+<<<<<<< HEAD
 .loginbtn, .signupbtn {
+=======
+
+.loginbtn, .signupbtn{
+>>>>>>> 333552ba90d139e16285be32cf2fbd2143254279
     border: none;
     display: block;
     background: #22A86C;
@@ -136,10 +141,18 @@ form input[type=checkbox] {
 }
 
 .signupbtn {
+<<<<<<< HEAD
   width: 180px;
   margin-top: 5px;
 }
 
+=======
+    width: 180px;
+    margin-top: 5px;
+}
+    
+    
+>>>>>>> 333552ba90d139e16285be32cf2fbd2143254279
 ::-webkit-input-placeholder {
   color: #22A86C;
 }

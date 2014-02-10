@@ -1,15 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="login.css">
-</head>
-<body>
-
     <div class="container">
         <div class="form">
             <div class="form_header">
@@ -26,7 +14,7 @@
                         </li>
                         <li>
                             <label for="password"></label>
-                            <input type="password" placeholder="Password" />
+                            <input type="password" placeholder="Password" name="password" id="password" />
                         </li>
                         <li>
                             <label for="remember">
@@ -51,5 +39,3 @@
             </div>            
         </div>
     </div>
-</body>
-</html>
