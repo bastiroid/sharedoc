@@ -175,6 +175,15 @@ input:focus:-ms-input-placeholder {
   color: #ffffff;
 }
 
+.error {
+  background: #e50000;
+  height: 40px;
+  width: 100%;
+  left: 0px;
+  margin-top: 47px;
+  position: absolute;
+}
+
 #header {
   position: absolute;
   width: 100%;
