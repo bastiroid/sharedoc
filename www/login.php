@@ -13,13 +13,15 @@ if (Input::exists()) {
 	if (Token::check(Input::get('token'))) {
 		
 		$validate = new Validate();
-		$validation = $validate->check($_POST, array(
+		$validation = $validate->check($_POST, $rows = array(
 
 			'email' => array(
+				'alias' => 'Email',
 				'required' => true
 			),
 
 			'password' => array(
+				'alias' => 'Password',
 				'required' => true
 			)
 
