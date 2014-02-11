@@ -37,7 +37,7 @@ if (Input::exists()) {
 			if ($login) {
 				Redirect::to('index.php');
 			} else {
-				$data['status'] = 'Your email address or password is invalid.';
+				$data['status'] = "<p class='error'>Your email address or password is invalid.</p>";
 			}
 
 		} else {
