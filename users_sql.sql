@@ -76,3 +76,30 @@ INNER JOIN `ipp_users`
 ON `ipp_group_join`.`user_id` = `ipp_users`.`id`
 WHERE `ipp_group_join`.`user_id` = /* Current user id */
 
+
+
+/* 	CREATING IPP_DOCUMENTS TABLE
+*/
+
+CREATE TABLE IF NOT EXISTS `ipp_document` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` VARCHAR(255) NOT NULL default '',
+  `admin_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `creation_date` VARCHAR(255) NOT NULL default '',
+/*   How do we manage the content ? Do we put it inside the table ? */
+  PRIMARY KEY  (`id`)
+);
+
+
+
+
+/* 	SELECTING DOCUMENT FOR EACH GROUP
+	
+*/
+
+SELECT `ipp_document`.`name`
+FROM `ipp_document`
+INNER JOIN `ipp_group`
+ON `ipp_group`.`id` = `ipp_document`.`group_id`
+WHERE `ipp_document`.`group_id` = /* Current group id */
