@@ -26,6 +26,7 @@ if (Input::exists()) {
 
 			'email' => array(
 				'alias' => 'Email',
+				'email' => 'true',
 				'unique' => 'ipp_users',
 				'required' => true,
 				'min' => 4,

@@ -61,6 +61,16 @@ class Validate {
 							}
 
 							break;
+
+						case 'email':
+							// Regular expression for validating email adresses
+							$email_pattern = '/^[a-z0-9\+-]+(\.[a-z0-9\+-]+)*@[a-z0-9-]+(\.[a-z0-9\+-]+)*\.[a-z]{2,6}$/';
+
+							if (!preg_match($email_pattern, $value)){
+								$this->addError("The email address provided is not valid.");
+							}
+
+							break;
 					}
 				}
 				
