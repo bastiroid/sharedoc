@@ -63,6 +63,19 @@ CREATE TABLE IF NOT EXISTS `ipp_content` (
 
 
 
+/* 	CREATING IPP_CONTENT TABLE
+*/
+
+CREATE TABLE IF NOT EXISTS `ipp_snapshots` (
+  `id` int(11) NOT NULL auto_increment,
+  `document_id` VARCHAR(255) NOT NULL default '',
+  `content` int(11) NOT NULL,
+  `creation_date` VARCHAR(255) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+);
+
+
+
 
 /**********************************************************************************
  **********************************************************************************
@@ -200,6 +213,12 @@ DELETE FROM `ipp_group_join` WHERE `ipp_group_join`.`group_id` = /* group_id */ 
 
 
 
-/*	 WHAT ELSE ?
+/*	 PULLING LATEST CONTENT WHEN EDITING DOCUMENT
 */
 
+SELECT `ipp_content`.`content`, `ipp_snapshot`.`content`
+INNER JOIN `ipp_content`.`document_id`=`ipp_document`.`id`
+INNER JOIN `ipp_snapshot`.`document_id`=`ipp_document`.`id`
+WHERE `ipp_document`.`id`= /* current_document_id */
+ORDER BY `ipp_snapshot`.`creation_date`, `ipp_content`.`creation_date`
+LIMIT 0 , 1
