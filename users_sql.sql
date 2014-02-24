@@ -164,7 +164,7 @@ VALUES							(/* current_user_id */, /* current_group_id */, FALSE);
 */
 
 
-INSERT INTO `ipp_group_join` 	(`name`, `admin_id`, `group_id`, `creation_date`)
+INSERT INTO `ipp_document` 	(`name`, `admin_id`, `group_id`, `creation_date`)
 VALUES							(/* user_input */, /* current_user_id */, /* current_group_id */, /* current_timestamp */);
 
 
