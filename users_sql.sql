@@ -145,7 +145,8 @@ VALUES							(/* user_input */, /* current_user_id */, /* current_group_id */, /
 
 
 /*	DELETING A DOCUMENT 
-*//* SHOULD ONLY BE ALLOWED IF */
+	SHOULD ONLY BE ALLOWED IF
+*/
 
 SELECT `ipp_document`.`admin_id`
 FROM `ipp_document` 
@@ -158,7 +159,8 @@ DELETE FROM `ipp_document` WHERE `ipp_document`.`id` = /* document_id */ ;
 
 
 /*	DELETING A GROUP
-*//* SHOULD ONLY BE ALLOWED IF */
+	SHOULD ONLY BE ALLOWED IF
+*/
 
 SELECT count(`id`) as total 
 FROM `ipp_group_join` 
@@ -171,7 +173,8 @@ DELETE FROM `ipp_group` WHERE `ipp_group`.`id` = /* group_id */ ;
 
 
 /*	OTHERWISE: LEAVING A GROUP
-*//* IMPLIES PICKING A NEW MODERATOR IF CURRENT USER WAS MODERATOR */
+	IMPLIES PICKING A NEW MODERATOR IF CURRENT USER WAS MODERATOR 
+*/
 
 
 DELETE FROM `ipp_group_join` WHERE `ipp_group_join`.`group_id` = /* group_id */ AND `ipp_group_join`.`user_id` = /* user_id */;
