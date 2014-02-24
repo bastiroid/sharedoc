@@ -46,7 +46,18 @@ CREATE TABLE IF NOT EXISTS `ipp_document` (
   `admin_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `creation_date` VARCHAR(255) NOT NULL default '',
-/*   How do we manage the content ? Do we put it inside the table ? */
+  PRIMARY KEY  (`id`)
+);
+
+
+/* 	CREATING IPP_CONTENT TABLE
+*/
+
+CREATE TABLE IF NOT EXISTS `ipp_content` (
+  `id` int(11) NOT NULL auto_increment,
+  `document_id` VARCHAR(255) NOT NULL default '',
+  `content` int(11) NOT NULL,
+  `creation_date` VARCHAR(255) NOT NULL default '',
   PRIMARY KEY  (`id`)
 );
 
