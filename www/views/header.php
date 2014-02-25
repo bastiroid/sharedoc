@@ -6,7 +6,7 @@
 	   				<li class='has-sub last'><a href='#'><span><?php echo $data->first_name; ?></span></a>
 	      				<ul>
 	         				<li><a href='#'><span>Account</span></a></li>
-	         				<li class='last'><a href='Logout.php'><span>Logout</span></a></li>
+	         				<li class='last'><a href='logout.php'><span>Logout</span></a></li>
 	      				</ul>
 	   				</li>
 				</ul>
