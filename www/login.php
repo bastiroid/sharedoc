@@ -8,6 +8,11 @@ if (Session::exists('success')) {
 	echo Session::flash('success');
 }
 
+$user = new User();
+if ($user->isLoggedIn()) {
+	Redirect::to('index.php');
+}
+
 if (Input::exists()) {
 	
 	if (Token::check(Input::get('token'))) {

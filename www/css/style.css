@@ -203,6 +203,9 @@ input:focus:-ms-input-placeholder {
 }
 
 .userbox {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: block;
   float: right;
   height: 56px;
