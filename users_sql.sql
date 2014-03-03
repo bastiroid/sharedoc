@@ -88,6 +88,12 @@ VALUES					('super', 'admin', 'adminpwd', 'admin_creation_date', 'admin.internet
 INSERT INTO `ipp_users` (`first_name`, `last_name`, `password`, `creation_date`, `email`, `avatar`)
 VALUES					(/* user_input */, /* user_input */, /* user_input */, /* generated_creation_date */, /* user_input */, /* manage file upload */);
 
+INSERT INTO `ipp_group` (`name`, `admin`, `color_code`)
+VALUES					(/* user_input */, /* current_user_id */, /* generated with PHP */);
+
+INSERT INTO `ipp_group_join` 	(`user_id`, `group_id`, `moderator`)
+VALUES							(/* current_user_id */, /* current_group_id */, TRUE);
+
 
 
 /* 	LOGGING USERS IN
@@ -104,6 +110,12 @@ AND `password`=/* user_input */
 
 
 
+/* 	CHANGING USER PASSWORD	
+*/
+
+UPDATE  `ipp_users` SET  `password` =  '/*HASHED PASSWORD*/' WHERE  `ipp_users`.`id` =/*USER_ID*/;
+
+
 /* 	SELECTING GROUPS FOR EACH USER	
 */
 
@@ -114,6 +126,7 @@ ON `ipp_group_join`.`group_id` = `ipp_group`.`id`
 INNER JOIN `ipp_users`
 ON `ipp_group_join`.`user_id` = `ipp_users`.`id`
 WHERE `ipp_group_join`.`user_id` = /* Current user id */
+
 
 
 
