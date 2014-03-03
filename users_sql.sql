@@ -119,7 +119,7 @@ UPDATE  `ipp_users` SET  `password` =  '/*HASHED PASSWORD*/' WHERE  `ipp_users`.
 /* 	SELECTING GROUPS FOR EACH USER	
 */
 
-SELECT `ipp_group`.`name`
+SELECT *
 FROM `ipp_group`
 INNER JOIN `ipp_group_join`
 ON `ipp_group_join`.`group_id` = `ipp_group`.`id`
@@ -128,6 +128,11 @@ ON `ipp_group_join`.`user_id` = `ipp_users`.`id`
 WHERE `ipp_group_join`.`user_id` = /* Current user id */
 
 
+SELECT *
+FROM `ipp_document`
+INNER JOIN `ipp_users`
+ON `ipp_document`.`admin_id`= `ipp_users`.`id`
+WHERE `ipp_document`.`admin_id` = /*current user id*/
 
 
 
