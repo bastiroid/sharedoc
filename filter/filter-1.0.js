@@ -26,7 +26,7 @@ function Filter(id){
 	if( $(id).hasClass('f-all') || $(id).hasClass('sel')){
 		$('#filter a').removeClass('sel');
 		$('#list .doc a').parent().stop();
-		$('#list .doc a').parent().show('slow',function(){
+		$('#list .doc a').parent().show('fast',function(){
 			$('#list .doc a').parent().removeClass('off');
 		});
 		$('#filter a.f-all').addClass('sel');
@@ -41,7 +41,7 @@ function Filter(id){
 			$('#list .doc a:not(.' + f_class + ')').parent().addClass('off');
 		});
 		$('#list .doc a.' + f_class).parent().stop();
-		$('#list .doc a.' + f_class).parent().show('slow',function(){
+		$('#list .doc a.' + f_class).parent().show('fast',function(){
 			$('#list .doc a.' + f_class).parent().removeClass('off');
 		});
 		$(id).addClass('sel');
