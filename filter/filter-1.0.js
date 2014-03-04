@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$('#list .create_doc a').parent().addClass('off');
 	// LIST
 	if($('#list').length > 0){
 		$('#filter a:not(.create_group)').each(function(index, element) {
@@ -29,7 +30,7 @@ function Filter(id){
 		$('#list .create_doc a').parent().hide('fast');
 		$('#list .doc a').parent().stop();
 		$('#list .doc a').parent().show('fast',function(){
-			$('#list .doc a').parent().removeClass('off');
+			$('#list .doc a').parent().toggleClass('off');
 		});
 		$('#filter a.f-all').addClass('sel');
 	}else{
@@ -40,15 +41,16 @@ function Filter(id){
 		$('#list .doc a:not(.' + f_class + ')').attr('onclick','return false;');
 		$('#list .doc a:not(.' + f_class + ')').parent().stop();
 		$('#list .doc a:not(.' + f_class + ')').parent().hide('fast',function(){
-			$('#list .doc a:not(.' + f_class + ')').parent().addClass('off');
+			$('#list .doc a:not(.' + f_class + ')').parent().toggleClass('off');
 		});
 		$('#list .create_doc a').parent().stop();
 		$('#list .create_doc a').parent().show('fast',function(){
 			$('#list .create_doc a').attr('class', ''+ hash +'');
+			$('#list .create_doc a').parent().toggleClass('off');
 		});
 		$('#list .doc a.' + f_class).parent().stop();
 		$('#list .doc a.' + f_class).parent().show('fast',function(){
-			$('#list .doc a.' + f_class).parent().removeClass('off');
+			$('#list .doc a.' + f_class).parent().toggleClass('off');
 		});
 		$(id).addClass('sel');
 	}

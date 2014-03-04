@@ -25,14 +25,12 @@
 	    	float: left;
 	    	margin-right: 15px;
     	}
-    	#list .doc{
+    	#list .doc, #list .create_doc{
 	    	float: left;
 	    	margin: 15px;
     	}
-    	#list .create_doc{
+    	.off{
 			display: none;
-	    	float: left;
-	    	margin: 15px;
     	}
     </style>
 
