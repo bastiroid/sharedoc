@@ -28,6 +28,18 @@ class User {
 		}
 	}
 
+	public function update($fields = array(), $id = null){
+
+		if (!$id && $this->isLoggedIn()) {
+			$id = $this->data()->id;
+		}
+
+		if(!$this->_db->update('ipp_users', $id, $fields)){
+			throw new Exception("There was a problem updating");
+			
+		}
+	}
+
 	public function create($fields = array()){
 		if (!$this->_db->insert('ipp_users', $fields)){
 			throw new Exception('There was a problem creating your account');
@@ -41,6 +53,18 @@ class User {
 
 			if ($data->count()){
 				$this->_data = $data -> first();
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public function delete($user = null){
+		if ($user){
+			$field = is_numeric($user) ? 'id' : 'email';
+			$data = $this->_db->delete('ipp_users', array($field, '=', $user));
+
+			if ($data->count()){
 				return true;
 			}
 		}
