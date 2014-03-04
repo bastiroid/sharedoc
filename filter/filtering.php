@@ -29,6 +29,11 @@
 	    	float: left;
 	    	margin: 15px;
     	}
+    	#list .create_doc{
+			display: none;
+	    	float: left;
+	    	margin: 15px;
+    	}
     </style>
 
 </head>
@@ -50,6 +55,8 @@
 
         <li><a href="#" class="f-personnal">Personnal documents</a></li>
 
+        <li><a href="#" class="create_group">Create Shared Group</a></li>
+
         <li><a href="#" class="f-group1">Group 1</a></li>
 
         <li><a href="#" class="f-group2">Group 2</a></li>
@@ -62,12 +69,16 @@
     </ul>
 
     <div id="list">
+    	
+        <div class="create_doc">
+            <a href="#" class="get_selected_group_class"><img src="http://placehold.it/200x250&text=create+document"></a>
+        </div>
     	<?php
     		/*
-    		foreach($documents as $document){
+    		foreach($documents as $doc){
 	    		echo('
 	    			<div class="doc">
-			            <a href="#" class="f-'.get group id.' "><img src="http://placehold.it/200x250&text=document+placeholder"></a>
+			            <a href="/edit?doc_id='.get doc id.'" class="f-'.get group id.'"><img src="http://placehold.it/200x250&text=document+placeholder"></a>
 			        </div>
 	    		');
     		}

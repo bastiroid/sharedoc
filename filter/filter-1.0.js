@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	// LIST
 	if($('#list').length > 0){
-		$('#filter a').each(function(index, element) {
+		$('#filter a:not(.create_group)').each(function(index, element) {
             $(this).click(function(){
 				return Filter(this);
 			});
@@ -25,6 +25,8 @@ function Filter(id){
 	window.location.hash = 'all';
 	if( $(id).hasClass('f-all') || $(id).hasClass('sel')){
 		$('#filter a').removeClass('sel');
+		$('#list .create_doc a').parent().stop();
+		$('#list .create_doc a').parent().hide('fast');
 		$('#list .doc a').parent().stop();
 		$('#list .doc a').parent().show('fast',function(){
 			$('#list .doc a').parent().removeClass('off');
@@ -39,6 +41,10 @@ function Filter(id){
 		$('#list .doc a:not(.' + f_class + ')').parent().stop();
 		$('#list .doc a:not(.' + f_class + ')').parent().hide('fast',function(){
 			$('#list .doc a:not(.' + f_class + ')').parent().addClass('off');
+		});
+		$('#list .create_doc a').parent().stop();
+		$('#list .create_doc a').parent().show('fast',function(){
+			$('#list .create_doc a').attr('class', ''+ hash +'');
 		});
 		$('#list .doc a.' + f_class).parent().stop();
 		$('#list .doc a.' + f_class).parent().show('fast',function(){
