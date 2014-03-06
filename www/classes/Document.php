@@ -58,19 +58,13 @@ class Document {
     	}
 	}
 
-	public function delete($user = null){
+	public function delete(){
 		
-		if ($user = null){
-			$user = $this->data()->id;
-		}
+		$id = $this->data()->id;
 
-		$data = $this->_db->delete('ipp_users', array('id', '=', $user));
-
-		if ($data->count()){
-			return true;
+		if(!$this->_db->delete('ipp_document', array('id', '=', $id))){
+			throw new Exception('There was a problem deleting your document');
 		}
-		
-		return false;
 	}
 
 	public function data(){
