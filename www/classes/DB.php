@@ -255,5 +255,14 @@ class DB {
     return $this->_error;
   }
 
+  /*
+  |--------------------------------------------------------------------------------------
+  | Get last auto incremented ID
+  |--------------------------------------------------------------------------------------
+  */
+  public function getLastId(){
+    return $this->_connection->lastInsertId();
+  }
+
 }
 ?>
