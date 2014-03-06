@@ -50,6 +50,7 @@ if (Input::exists()) {
 		if ($validation->passed()) {
 
 			$user = new User();
+			$group = new Group();
 
 			$salt = Hash::salt(32);
 
@@ -62,6 +63,20 @@ if (Input::exists()) {
 					'password' => Hash::make(Input::get('password'), $salt),
 					'salt' => $salt
 				));
+
+				$userid = new User();
+				$userid->find(Input::get('email'));
+
+				$group->create(
+					array(
+						'name' => 'My Documents',
+						'admin' => $userid->data()->id
+					),
+					array(
+						'user_id' => $userid->data()->id,
+						'moderator' => true
+					)
+				);
 
 				Session::flash('success', 'You registered successfully and can now login!');
 
