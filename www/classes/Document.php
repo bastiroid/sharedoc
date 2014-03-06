@@ -33,7 +33,13 @@ class Document {
 		$user = new User();
 		$id = $user->data()->id;
 
-		$data = $this->_db->get('ipp_document', array('admin_id', '=', $id));
+		$sql = "SELECT `ipp_document`.`group_id`,`ipp_document`.`name`,`ipp_document`.`id`
+		FROM `ipp_document`
+		INNER JOIN `ipp_users`
+		ON `ipp_document`.`admin_id`= `ipp_users`.`id`
+		WHERE `ipp_document`.`admin_id` = 47";
+
+		$data = $this->_db->query($sql, array($id));
 
 		if ($data->count()) {
 			$this->_data = $data->results();
