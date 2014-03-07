@@ -71,11 +71,11 @@ if (Input::exists()) {
 					array(
 						'name' => 'My Documents',
 						'admin' => $userid->data()->id,
-						'is_shared' => 'FALSE'
+						'is_shared' => false
 					),
 					array(
 						'user_id' => $userid->data()->id,
-						'moderator' => 'TRUE'
+						'moderator' => true
 					)
 				);
 
