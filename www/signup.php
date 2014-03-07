@@ -70,11 +70,12 @@ if (Input::exists()) {
 				$group->create(
 					array(
 						'name' => 'My Documents',
-						'admin' => $userid->data()->id
+						'admin' => $userid->data()->id,
+						'is_shared' => 'FALSE'
 					),
 					array(
 						'user_id' => $userid->data()->id,
-						'moderator' => true
+						'moderator' => 'TRUE'
 					)
 				);
 
