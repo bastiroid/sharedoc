@@ -322,3 +322,48 @@ input:focus:-ms-input-placeholder {
     background-color: #2D2F31;
     text-align: center;
   }
+/*Sidebar*/
+
+#sidebar {
+  position: absolute;
+  float: left;
+  width: 300px;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+}
+
+.editor {
+    padding: 5% 10% 5% 10%;
+} 
+
+#docview {
+    text-align: left;
+    padding: 75px 8% 5% 10%;
+}
+
+#docview li {
+    display: inline-block;
+    background: url(images/folders-icon.png);
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+    margin: 8px;
+    /* for ie7 */
+    zoom: 1;
+    *display: inline;
+    text-align: center;
+}
+
+#docview li:first-child {
+    background: url(images/plus.png);
+    background-size: 100%;
+}
+
+#docview li a{
+    display: block;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
