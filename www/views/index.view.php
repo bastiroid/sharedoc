@@ -1,6 +1,6 @@
 <?php
 
-var_dump($data); ?>
+//var_dump($data); ?>
 
 <ul id="filter">
 <li><a href="#" class="f-all sel">All documents</a></li>

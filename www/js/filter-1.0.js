@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#list .create_doc a').parent().addClass('off');
+	$('#list .create_doc').hide();
 	// LIST
 	if($('#list').length > 0){
 		$('#filter a:not(.create_group)').each(function(index, element) {
