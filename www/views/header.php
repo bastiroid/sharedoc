@@ -18,11 +18,10 @@
             		<nav class="gn-menu-wrapper">
                     	<div class="gn-scroller">
                 		<ul class="gn-menu" id="filter">
-                  			<li><a class="gn-icon gn-icon-archive f-all sel">All documents</a></li>
-                  			<li><a class="gn-icon gn-icon-archive">Create Shared Group</a></li>
-                  			<li><a class="gn-icon gn-icon-archive"></a></li>
+                  			<li><a class="f-all sel">All documents</a></li>
+                  			<li><a class="create_group">Create Shared Group</a></li>
                   			<?php if($data['groups']) foreach ($data['groups'] as $group): ?>					
-							<li><a href="#" class="gn-icon gn-icon-archive f-<?= $group->id ?>"><?= $group->name ?></a></li>
+							<li><a class="f-<?= $group->id ?>"><?= $group->name ?></a></li>
 							<?php endforeach; ?>
                 		</ul>
                 		<div class="gn-scroller-footer">© Copyright<?php echo date("Y"); ?> ShareDoc</div>
