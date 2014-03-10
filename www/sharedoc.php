@@ -6,10 +6,10 @@ require 'functions.php';
 
 $GLOBALS['config'] = array(
 	'mysql' => array(
-		'host' => '127.0.0.1',
-		'username' => 'root',
-		'password' => '',
-		'database' => 'sharedoc'
+		'host' => 'mysql.metropolia.fi',
+		'username' => 'nt3rn3t0hj3lm0nt',
+		'password' => 'm4e7t2r9op3ol2ia',
+		'database' => 'nt3rn3t0hj3lm0nt'
 	),
 	'session' => array(
 		'session_name' => 'user',
