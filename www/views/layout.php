@@ -22,7 +22,9 @@
 	
 	</div>
 
-	<?php require_once 'footer.php'; ?>
+	<?php
+		if (!$user->isLoggedIn()) require_once 'footer.php';
+	?>
 	
 </body>
 </html>
