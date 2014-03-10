@@ -48,8 +48,7 @@ class Group {
 				ON `ipp_group_join`.`group_id` = `ipp_group`.`id`
 				INNER JOIN `ipp_users`
 				ON `ipp_group_join`.`user_id` = `ipp_users`.`id`
-				WHERE `ipp_group_join`.`user_id` = $id
-				AND `ipp_group`.`is_shared` = TRUE";
+				WHERE `ipp_group_join`.`user_id` = ?";
 
 		$data = $this->_db->query($sql, array($id));
 

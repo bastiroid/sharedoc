@@ -8,7 +8,7 @@ if (!$user->isLoggedIn()) {
 	Redirect::to('index.php');
 }
 
-$data = $user->data();
+$data['user'] = $user->data();
 
 if (Input::exists()){
 	if (Token::check(Input::get('token'))) {

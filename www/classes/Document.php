@@ -32,12 +32,12 @@ class Document {
 	public function getDocuments(){
 		$user = new User();
 		$id = $user->data()->id;
-
+		
 		$sql = "SELECT `ipp_document`.`group_id`,`ipp_document`.`name`,`ipp_document`.`id`
 		FROM `ipp_document`
 		INNER JOIN `ipp_users`
 		ON `ipp_document`.`admin_id`= `ipp_users`.`id`
-		WHERE `ipp_document`.`admin_id` = 47";
+		WHERE `ipp_document`.`admin_id` = ?";
 
 		$data = $this->_db->query($sql, array($id));
 
