@@ -125,7 +125,7 @@ form input[type=checkbox] {
   padding-left: 15px;
 }
 
-.loginbtn, .signupbtn {
+.loginbtn, .signupbtn .pswbtn {
     border: none;
     display: block;
     background: #22A86C;
@@ -141,11 +141,14 @@ form input[type=checkbox] {
 }
 
 .loginbtn:hover, .signupbtn:hover {
-  background: #3F4649;
-  /*box-shadow: 0 3px 1px #237bb2;*/
+  background: #2D2F31;
 }
 
-.signupbtn {
+.pswbtn:hover {
+  background: #3F4649;
+}
+
+.signupbtn .pswbtn{
   width: 180px;
   margin-top: 5px;
 }
