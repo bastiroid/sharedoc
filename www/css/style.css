@@ -343,7 +343,7 @@ input:focus:-ms-input-placeholder {
     padding: 75px 8% 5% 10%;
 }
 
-.doc li {
+.doc {
     display: inline-block;
     background: url(images/folders-icon.png);
     background-size: 100%;
@@ -356,7 +356,7 @@ input:focus:-ms-input-placeholder {
     text-align: center;
 }
 
-.create_doc li {
+.create_doc {
     display: inline-block;
     background: url(images/plus.png);
     background-size: 100%;
@@ -369,7 +369,7 @@ input:focus:-ms-input-placeholder {
     text-align: center;
 }
 
-.create_doc li a{
+.create_doc a{
     display: block;
     margin: 0;
     height: 100%;
