@@ -24,7 +24,7 @@
 							<li><a class="f-<?= $group->id ?>"><?= $group->name ?></a></li>
 							<?php endforeach; ?>
                 		</ul>
-                		<div class="gn-scroller-footer">© Copyright<?php echo date("Y"); ?> ShareDoc</div>
+                		<div class="gn-scroller-footer">Copyright © <?php echo date("Y"); ?> ShareDoc</div>
               			</div><!-- /gn-scroller -->
             		</nav>
           		</li>    
