@@ -141,14 +141,14 @@ form input[type=checkbox] {
 }
 
 .loginbtn:hover, .signupbtn:hover {
-  background: #2D2F31;
-}
-
-.pswbtn:hover {
   background: #3F4649;
 }
 
-.signupbtn .pswbtn{
+.pswbtn:hover {
+  background: #2D2F31;
+}
+
+.signupbtn, .pswbtn{
   width: 180px;
   margin-top: 5px;
 }
