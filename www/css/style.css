@@ -125,7 +125,7 @@ form input[type=checkbox] {
   padding-left: 15px;
 }
 
-.loginbtn, .signupbtn .pswbtn {
+.loginbtn, .signupbtn, .pswbtn {
     border: none;
     display: block;
     background: #22A86C;
