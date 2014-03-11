@@ -107,7 +107,7 @@
 .gn-scroller {
 		position: absolute;
 		overflow-y: scroll;
-		width: 250px;
+		width: 220px;
 		height: 100%;
 }
 
