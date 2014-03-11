@@ -114,7 +114,7 @@
 .gn-scroller-footer{
 	position: absolute;
     bottom: 0;
-    width: 220px;
+    width: 250px;
     height: 50px;
     font-size: 16px;
     background-color: #2D2F31;
@@ -320,7 +320,7 @@ input.gn-search:focus {
 }
 
 .gn-menu-wrapper.gn-open-all {
-		width: 220px
+		width: 250px
 }
 
 .gn-menu-wrapper.gn-open-all .gn-submenu li {
