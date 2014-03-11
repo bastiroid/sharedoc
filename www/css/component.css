@@ -124,6 +124,7 @@
 
 .gn-menu {
 		border-bottom: 1px solid #c6d0da;
+		padding-left: 60px;
 		text-align: left;
 		font-size: 18px;
 }
