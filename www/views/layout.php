@@ -10,7 +10,8 @@
     <script type="text/javascript" src="js/filter-1.0.js"></script>
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/component.css" />
-    <script src="js/modernizr.custom.js"></script> 
+    <script src="js/modernizr.custom.js"></script>
+    <script src="ckeditor/ckeditor.js"></script> 
 </head>
 <body>
 	
