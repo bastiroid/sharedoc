@@ -340,7 +340,7 @@ input:focus:-ms-input-placeholder {
 
 #list {
     text-align: left;
-    padding: 15px 8% 5% 5%;
+    padding: 15px 8% 5% 0;
 }
 
 .doc {
