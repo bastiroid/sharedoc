@@ -375,6 +375,6 @@ input:focus:-ms-input-placeholder {
 .create_doc a, .doc a {
     display: block;
     margin: 0;
-    height: 100%;
     width: 100%;
+    padding-top: 128px;
 }
