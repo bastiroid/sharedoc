@@ -1,5 +1,3 @@
-
-
 @font-face {
 		font-weight: normal;
 		font-style: normal;
@@ -34,7 +32,7 @@
 
 .gn-menu-main a {
 		display: block;
-		padding: 0px 10px 0px 60px;
+		padding: 0px 10px 0px 0px;
 		height: 100%;
 		color: #22A86C;
 		text-decoration: none;
@@ -235,6 +233,36 @@ input.gn-search:focus {
 		speak: none;
 		-webkit-font-smoothing: antialiased;
 }
+
+
+.gn-menu li a::before{
+		display: inline-block;
+		width: 60px;
+		text-align: center;
+		text-transform: none;
+		font-weight: normal;
+		font-style: normal;
+		font-variant: normal;
+		font-family: 'ecoicons';
+		line-height: 1;
+		speak: none;
+		-webkit-font-smoothing: antialiased;
+		content: "\e006";		
+}
+
+.gn-menu li:first-child a::before {
+		content: "\e006";		
+}
+
+.gn-menu li:nth-child(2) a::before {
+		content: "\e003";
+}
+
+.gn-menu li:nth-child(n+3) a::before {
+		content: "\e00d";
+}
+
+
 
 .gn-icon-help::before {
 		content: "\e000"
