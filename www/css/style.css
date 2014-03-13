@@ -40,7 +40,7 @@ label {
 	display: block;
 }
 
-.form, .form2 {
+.form, .form2, .settings {
   background: #2D2F31;
   margin: 10% auto;
   width: 390px;

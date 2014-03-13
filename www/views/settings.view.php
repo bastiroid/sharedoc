@@ -1,3 +1,4 @@
+<div class="settings">
 <div id="login" class="form-action show">
     <form action="" method="post">
         <ul>
@@ -22,4 +23,5 @@
         <p><?= $status; ?></p>
     <?php endif; ?>                
 </form>
+</div>
 </div>
