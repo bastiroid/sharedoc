@@ -338,7 +338,8 @@ input:focus:-ms-input-placeholder {
 }
 
 .editor {
-    padding: 5% 10% 5% 10%;
+    margin-left: 220px;
+    padding: 15px 0px;
 } 
 
 #list {
