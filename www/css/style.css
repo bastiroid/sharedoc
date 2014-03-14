@@ -378,3 +378,13 @@ input:focus:-ms-input-placeholder {
     width: 100%;
     padding-top: 128px;
 }
+
+.settings {
+  background: #2D2F31;
+  margin: 100px auto;
+  padding-top: 15px;
+  width: 550px;
+  height: 300px;
+  position: relative;
+  font-family: 'Roboto';
+}
