@@ -140,12 +140,8 @@ form input[type=checkbox] {
     transition: all 0.15s linear;
 }
 
-.loginbtn:hover, .signupbtn:hover {
+.loginbtn:hover, .signupbtn:hover, .pswbtn:hover {
   background: #3F4649;
-}
-
-.pswbtn:hover {
-  background: #2D2F31;
 }
 
 .signupbtn, .pswbtn{
