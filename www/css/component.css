@@ -334,8 +334,8 @@ input.gn-search:focus {
 }
 
 .gn-icon-menu.gn-selected::before {
-		background: #5993cd;
-		box-shadow: 0 3px white, 0 -6px #5993cd, 0 -9px white, 0 -12px #5993cd;
+		background: #22a86c;
+		box-shadow: 0 3px white, 0 -6px #22a86c, 0 -9px white, 0 -12px #22a86c;
 }
 
 /* styles for opening menu */
