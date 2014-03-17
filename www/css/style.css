@@ -355,6 +355,7 @@ input:focus:-ms-input-placeholder {
     margin: 0;
     width: 100%;
     padding-top: 128px;
+    text-overflow: ellipsis;
 }
 
 .settings {
