@@ -50,7 +50,7 @@ class Document {
 		return false;
 	}
 
-	public function rename($fields = array()){
+	public function change($fields = array()){
 		
 		$id = $this->data()->id;
 

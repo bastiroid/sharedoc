@@ -45,7 +45,7 @@ function Filter(id){
 		});
 		$('#list .create_doc a').parent().stop();
 		$('#list .create_doc a').parent().show('fast',function(){
-			$('#list .create_doc a').attr('class', ''+ hash +'');
+			$('#list .create_doc a').attr('href', 'create_document.php?group_id='+ hash +'');
 			$('#list .create_doc a').parent().toggleClass('off');
 		});
 		$('#list .doc a.' + f_class).parent().stop();

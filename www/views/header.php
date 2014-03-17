@@ -19,7 +19,7 @@
                     	<div class="gn-scroller">
                 		<ul class="gn-menu" id="filter">
                   			<li><a class="f-all sel">All documents</a></li>
-                  			<li><a class="create_group">Create Shared Group</a></li>
+                  			<li><a href="create_group.php" class="create_group">Create Shared Group</a></li>
                   			<?php if($data['groups']) foreach ($data['groups'] as $group): ?>					
 							<li><a class="f-<?= $group->id ?>"><?= $group->name ?></a></li>
 							<?php endforeach; ?>
