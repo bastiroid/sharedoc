@@ -355,7 +355,14 @@ input:focus:-ms-input-placeholder {
     margin: 0;
     width: 100%;
     padding-top: 128px;
+   white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.create_doc a:hover, .doc a:hover {
+    white-space: nowrap;
+    text-overflow:inherit;
+    overflow: visible;
 }
 
 .settings {
