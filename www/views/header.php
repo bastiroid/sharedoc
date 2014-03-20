@@ -36,8 +36,37 @@
             </ul>
         </div>
 	</div>
-	<script src="js/classie.js"></script>
+
+	<form id="rename" action="rename_group.php" method="post">
+    <input type="hidden" id="name" name="name">
+    <input type="hidden" id="group_id" name="group_id">
+  </form>
+  <script src="js/classie.js"></script>
     <script src="js/gnmenu.js"></script>
     <script>
       new gnMenu( document.getElementById( 'gn-menu' ) );
+
+      $(document).ready(function(){
+        var name;
+        var groupLinks = $('#filter').find('a');
+
+        $(groupLinks).on('click', function(){
+          name = $(this).text();
+          $('.nameform').text(name);
+        });
+
+        $('.docbtn').on('click', function(){
+          name = $('.nameform').text();
+          $('#name').val(name);
+          console.log(name);
+          var groupId = window.location.href.split('#')[1]
+          $('#group_id').val(groupId);
+          console.log(groupId);
+          $( "#rename" ).submit();
+        });
+
+      });
+      
+      
+
     </script>

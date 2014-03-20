@@ -31,11 +31,20 @@ class Group {
 			$data = $this->_db->get('ipp_group', array($field, '=', $group));
 
 			if ($data->count()){
-				$this->_data = $data->results();
+				$this->_data = $data -> first();
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public function change($fields = array()){
+		
+		$id = $this->data()->id;
+
+		if (!$this->_db->update('ipp_group', $id, $fields)) {
+			throw new Exception('There was a problem renaming your group');
+    	}
 	}
 
 	public function getGroups(){
@@ -64,7 +73,7 @@ class Group {
 		
 		$id = $this->data()->id;
 
-		if(!$this->_db->delete('ipp_document', array('id', '=', $id))){
+		if(!$this->_db->delete('ipp_group', array('id', '=', $id))){
 			throw new Exception('There was a problem deleting your document');
 		}
 	}
