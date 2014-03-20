@@ -184,6 +184,9 @@ input:focus:-ms-input-placeholder {
   width: 100%;
   left: 0px;
   margin-top: 47px;
+  font-size: 12px;
+  padding-top: 10px;
+  text-align: center;
   position: absolute;
 }
 
