@@ -1,7 +1,7 @@
 	<div id='header'>
 		<div class="docname"> 
     <div class="nameform"  contenteditable="true">  
-      <p>Untitled Document</p>  
+      <p><?php if(isset($data['document'])) echo $data['document']->name; ?></p>  
     </div>  
   <button class="docbtn">Save</button>
 </div>
@@ -25,7 +25,7 @@
                 		<ul class="gn-menu" id="filter">
                   			<li><a class="f-all sel">All documents</a></li>
                   			<li><a href="create_group.php" class="create_group">Create Shared Group</a></li>
-                  			<?php if($data['groups']) foreach ($data['groups'] as $group): ?>					
+                  			<?php if(isset($data['groups'])) foreach ($data['groups'] as $group): ?>					
 							<li><a class="f-<?= $group->id ?>"><?= $group->name ?></a></li>
 							<?php endforeach; ?>
                 		</ul>
@@ -37,7 +37,7 @@
         </div>
 	</div>
 
-	<form id="rename" action="rename_group.php" method="post">
+	<form id="rename" action="rename.php" method="post">
     <input type="hidden" id="name" name="name">
     <input type="hidden" id="group_id" name="group_id">
   </form>
