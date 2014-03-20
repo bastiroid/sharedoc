@@ -1,5 +1,10 @@
 	<div id='header'>
-		<h1>Welcome <?php echo $data['user']->first_name; ?></h1>
+		<div class="docname"> 
+    <div class="nameform"  contenteditable="true">  
+      <p>Untitled Document</p>  
+    </div>  
+  <button class="docbtn">Save</button>
+</div>
 	    <div class='userbox'>
 	    	<div id='cssmenu'>
 				<ul>

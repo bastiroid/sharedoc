@@ -374,3 +374,39 @@ input:focus:-ms-input-placeholder {
   position: relative;
   font-family: 'Roboto';
 }
+
+.docname {
+  display: block;
+  background: #fff;
+  color: #22a86c;
+  margin: 5px auto;
+  padding: 5px;
+  line-height: 40px;
+  width: 400px;
+}
+
+.nameform {
+  width: 300px;
+  height: 35px;
+  font-family: 'Roboto';
+  font-size: 120%;
+  float: left;
+}
+
+.docbtn{
+    border: none;
+    display: block;
+    background: #22A86C;
+    height: 40px;
+    width: 100px;
+    color: #ffffff;
+    text-align: center;
+    /*box-shadow: 0px 3px 1px #3F4649;*/
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+}
+
+.docbtn:hover {
+  background: #3F4649;
+}
