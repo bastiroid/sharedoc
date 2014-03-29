@@ -39,6 +39,7 @@
 
 	<form id="rename" action="rename.php" method="post">
     <input type="hidden" id="name" name="name">
+    <input type="hidden" id="doc_id" name="doc_id">
     <input type="hidden" id="group_id" name="group_id">
   </form>
   <script src="js/classie.js"></script>
@@ -58,6 +59,7 @@
         $('.docbtn').on('click', function(){
           name = $('.nameform').text();
           $('#name').val(name);
+          $('#doc_id').val(<?php if(isset($data['document'])) echo $data['document']->id; ?>);
           console.log(name);
           var groupId = window.location.href.split('#')[1]
           $('#group_id').val(groupId);
